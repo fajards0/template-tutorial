@@ -66,8 +66,9 @@
 
                                           </li>
                                           <li class="has-dropdown">
-                                              <a href="{{ url('shop') }}">Shop</a>
+                                              <a href="#">Shop</a>
                                               <ul class="submenu">
+                                                <li><a href="{{ url('shop') }}">Shop</a></li>
                                                 <li><a href="{{ url('produkdetail') }}">Produk Detail</a></li>
                                              </ul>
                                           </li>
@@ -401,8 +402,8 @@
                       <span class="heilight-price"> $300.00</span>
                   </div>
                   <div class="tpcart__checkout-btn">
-                      <a class="tpcart-btn mb-10" href="cart.html">View Cart</a>
-                      <a class="tpcheck-btn" href="checkout.html">Checkout</a>
+                      <a class="tpcart-btn mb-10" href="{{ url('cart') }}">View Cart</a>
+                      <a class="tpcheck-btn" href="{{ url('checkout') }}">Checkout</a>
                   </div>
               </div>
           </div>
