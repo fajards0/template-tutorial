@@ -127,7 +127,7 @@
           <div class="row align-items-center">
               <div class="col-xl-2 col-lg-3">
                   <div class="logo">
-                      <a href="index.html"><img src="assets/img/logo/logo.png" alt="logo"></a>
+                      <a href="index.html"><img src="front/assets/img/logo/logo.png" alt="logo"></a>
                   </div>
               </div>
               <div class="col-xl-6 col-lg-6">
@@ -239,7 +239,7 @@
                       <button class="tp-menu-toggle"><i class="far fa-bars"></i></button>
                   </div>
                   <div class="logo">
-                      <a href="index.html"><img src="assets/img/logo/logo.png" alt="logo"></a>
+                      <a href="index.html"><img src="front/assets/img/logo/logo.png" alt="logo"></a>
                   </div>
               </div>
               <div class="col-lg-9 col-md-8">
@@ -275,7 +275,7 @@
               </div>
               <div class="col-6">
                   <div class="logo text-center">
-                      <a href="index.html"><img src="assets/img/logo/logo.png" alt="logo"></a>
+                      <a href="index.html"><img src="front/assets/img/logo/logo.png" alt="logo"></a>
                   </div>
               </div>
               <div class="col-3">
@@ -359,7 +359,7 @@
                       <li>
                           <div class="tpcart__item">
                               <div class="tpcart__img">
-                                  <img src="assets/img/banner/banner-2-03.jpg" alt="">
+                                  <img src="front/assets/img/banner/banner-2-03.jpg" alt="">
                                   <div class="tpcart__del">
                                       <a href="#"><i class="far fa-times-circle"></i></a>
                                   </div>
@@ -378,7 +378,7 @@
                       <li>
                           <div class="tpcart__item">
                               <div class="tpcart__img">
-                                  <img src="assets/img/banner/banner-2-04.jpg" alt="">
+                                  <img src="front/assets/img/banner/banner-2-04.jpg" alt="">
                                   <div class="tpcart__del">
                                       <a href="#"><i class="far fa-times-circle"></i></a>
                                   </div>

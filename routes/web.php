@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\UsersController;
+use App\Http\Middleware\IsAdmin;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +24,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    });
-});
+// Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+//     Route::get('/', function () {
+//         return view('admin.index');
+//     });
+// });
 
 Route::get('/', [FrontController::class, 'index']);
 Route::get('/contact', [FrontController::class, 'contact']);
@@ -36,3 +38,10 @@ Route::get('/checkout', [FrontController::class, 'checkout']);
 Route::get('/produk', [FrontController::class, 'produk']);
 Route::get('/about', [FrontController::class, 'about']);
 Route::get('/produkdetail', [FrontController::class, 'produkDetail']);
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    Route::resource('user', UsersController::class);
+});
