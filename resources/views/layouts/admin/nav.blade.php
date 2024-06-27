@@ -632,12 +632,11 @@
                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><i
                         class="material-icons-outlined">power_settings_new</i>Logout</a>
-                        
+
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>
         </li>
     </ul>
-
 </nav>

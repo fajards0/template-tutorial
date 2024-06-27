@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">Dashboard</div>
@@ -19,17 +18,9 @@
             </nav>
         </div>
         <div class="ms-auto">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Settings</button>
-                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                        href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                </div>
+            <div class="card">
+                <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary" style="float: right">Add Data</a>
+
             </div>
         </div>
     </div>
@@ -53,39 +44,49 @@
                     <tbody>
                         @php $i = 1; @endphp
                         @foreach ($users as $item)
-                            <tr>
-                                <td>{{$i++}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->isAdmin == 1 ? 'Admin' : 'User'}}</td>
-                                <td>
-                                    <form action="{{ route('user.destroy', $item->id) }}" id="delete-data"
-                                        method="post">
-                                        @method('DELETE')
-                                        @csrf
-                                        <a href="{{ route('user.edit', $item->id) }}"
-                                            class="btn btn-sm btn-success">
-                                            Edit
-                                        </a>
-                                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @if ($loop->first)
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->isAdmin == 1 ? 'Admin' : 'User' }}</td>
+                                    <td></td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->isAdmin == 1 ? 'Admin' : 'User' }}</td>
+                                    <td>
+                                        <form action="{{ route('user.destroy', $item->id) }}" id="delete-data"
+                                            method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-success">
+                                                Edit
+                                            </a>
+                                            |
+                                            <a href="{{ route('user.destroy', $item->id) }}" class="btn btn-sm btn-danger"
+                                                data-confirm-delete="true">Delete</a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 @endsection
 
 @push('scripts')
     <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script>
-		$(document).ready(function() {
-			$('#example').DataTable();
-		  } );
-	</script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 @endpush

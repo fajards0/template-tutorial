@@ -68,9 +68,9 @@
                                           <li class="has-dropdown">
                                               <a href="#">Shop</a>
                                               <ul class="submenu">
-                                                <li><a href="{{ url('shop') }}">Shop</a></li>
-                                                <li><a href="{{ url('produkdetail') }}">Produk Detail</a></li>
-                                             </ul>
+                                                  <li><a href="{{ url('shop') }}">Shop</a></li>
+                                                  <li><a href="{{ url('produkdetail') }}">Produk Detail</a></li>
+                                              </ul>
                                           </li>
 
                                           <li>
@@ -110,7 +110,36 @@
                                   <i class="fal fa-shopping-cart"></i>
                                   <span class="tp-product-count">2</span>
                               </button>
-                              <a href="sign-in.html"><i class="fal fa-user"></i></a>
+                              @guest
+                                  <a href="{{ url('login') }}"><i class="fal fa-user"></i></a>
+                              @else
+                                  <div class="header-meta__lang">
+                                      <ul>
+                                          <li>
+                                              <a href="#">
+                                                  <img src="front/assets/img/icon/lang-flag.png"
+                                                      alt="flag">{{ Auth::user()->name }}
+                                                  <span><i class="fal fa-angle-down"></i></span>
+                                              </a>
+                                              <ul class="header-meta__lang-submenu">
+                                                  <li>
+                                                      <a href="#">Profile</a>
+                                                  </li>
+                                                  <hr>
+                                                  <li>
+                                                      <a href="{{ route('logout') }}"
+                                                          onclick="event.preventDefault();
+                                                                  document.getElementById('logout-form').submit();">Logout</a>
+                                                      <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                          class="d-none">
+                                                          @csrf
+                                                      </form>
+                                                  </li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              @endguest
                               <a href="wishlist.html"><i class="fal fa-heart"></i></a>
                           </div>
                       </div>
