@@ -44,4 +44,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], fu
         return view('admin.index');
     });
     Route::resource('user', UsersController::class);
+    Route::resource('kategori', App\Http\Controllers\KategoriController::class);
 });
